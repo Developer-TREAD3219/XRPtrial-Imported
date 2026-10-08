@@ -16,4 +16,9 @@ public final class Constants {
   public static class OperatorConstants {
     public static final int kDriverControllerPort = 0;
   }
+  public static class ArmConstants{
+   public static final double ArmResting = 90 ;
+  public static final double ArmActive = 45 ;
+ public static final double ArmNegative = -90 ;
+ } 
 }
