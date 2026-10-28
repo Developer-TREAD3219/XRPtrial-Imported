@@ -15,6 +15,8 @@ import frc.robot.subsystems.Arm;
 import frc.robot.subsystems.DistanceSensor;
 import frc.robot.subsystems.LineSensor;
 import frc.robot.subsystems.Drivetrain;
+import frc.robot.Constants;
+import frc.robot.Constants.ArmConstants;
 import edu.wpi.first.wpilibj.smartdashboard.SendableChooser;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import edu.wpi.first.wpilibj.xrp.XRPOnBoardIO;
@@ -81,18 +83,18 @@ public class RobotContainer {
 
     JoystickButton joystickAButton = new JoystickButton(m_controller, 1);
     joystickAButton
-        .onTrue(new InstantCommand(() -> m_arm.setAngle(45.0), m_arm))
-    .onFalse(new InstantCommand(() -> m_arm.setAngle(90.0), m_arm));
+        .onTrue(new InstantCommand(() -> m_arm.setAngle(ArmConstants.ArmHi), m_arm))
+    .onFalse(new InstantCommand(() -> m_arm.setAngle(ArmConstants.ArmResting), m_arm));
 
-    // JoystickButton joystickBButton = new JoystickButton(m_controller, 2);
-    // joystickBButton
-    //     .onTrue(new InstantCommand(() -> m_arm.setAngle(90.0), m_arm))
-    //     .onFalse(new InstantCommand(() -> m_arm.setAngle(0.0), m_arm));
+    JoystickButton joystickBButton = new JoystickButton(m_controller, 2);
+     joystickBButton
+        .onTrue(new InstantCommand(() -> m_arm.setAngle(60.0), m_arm))
+        .onFalse(new InstantCommand(() -> m_arm.setAngle(ArmConstants.ArmResting), m_arm));
 
     // Setup SmartDashboard options
-    // m_chooser.setDefaultOption("Auto Routine Distance", new AutonomousDistance(m_drivetrain));
-    // m_chooser.addOption("Auto Routine Time", new AutonomousTime(m_drivetrain));
-    // SmartDashboard.putData(m_chooser);
+    m_chooser.setDefaultOption("Auto Routine Distance", new AutonomousDistance(m_drivetrain));
+    m_chooser.addOption("Auto Routine Time", new AutonomousTime(m_drivetrain));
+    SmartDashboard.putData(m_chooser);
   }
 
   /**
