@@ -17,7 +17,8 @@ public final class Constants {
     public static final int kDriverControllerPort = 0;
   }
   public static class ArmConstants { 
-    public static final double ArmResting = 90;
-    public static final double ArmHi = 0;
+    public static final double ArmResting = 0;
+    public static final double ArmHi = 90;
+    //public static final double Arm
   }
 }

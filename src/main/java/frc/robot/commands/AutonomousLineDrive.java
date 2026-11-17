@@ -7,17 +7,15 @@ import edu.wpi.first.wpilibj2.command.Command;
 
 public class AutonomousLineDrive extends Command {
     
-    // private final LineSensor m_LineSensor;
-    // private final Drivetrain m_Drivetrain;
-    // private final DriveDistance m_DriveDistance;
+    public LineSensor m_LineSensor;
+    public Drivetrain m_Drivetrain;
+    public DriveDistance m_DriveDistance;
 
     public AutonomousLineDrive() {
-        // Drive forware until a line is sensed, pause for 5 seconds, then continue
 // TO-DO!!!!!
-        // if (m_LineSensor.isOnLine()){
-
-        // }
+//
+        if (m_LineSensor.isOnLine()){
+        
+        }
     }
-
-
 }
