@@ -15,6 +15,7 @@ import frc.robot.subsystems.Arm;
 import frc.robot.subsystems.DistanceSensor;
 import frc.robot.subsystems.LineSensor;
 import frc.robot.subsystems.Drivetrain;
+import frc.robot.Constants;
 import frc.robot.Constants.ArmConstants;
 import edu.wpi.first.wpilibj.smartdashboard.SendableChooser;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
@@ -94,9 +95,9 @@ public class RobotContainer {
     //     .onFalse(new InstantCommand(() -> m_arm.setAngle(0.0), m_arm));
 
     // Setup SmartDashboard options
-    // m_chooser.setDefaultOption("Auto Routine Distance", new AutonomousDistance(m_drivetrain));
-    // m_chooser.addOption("Auto Routine Time", new AutonomousTime(m_drivetrain));
-    // SmartDashboard.putData(m_chooser);
+    m_chooser.setDefaultOption("Auto Routine Distance", new AutonomousDistance(m_drivetrain));
+    m_chooser.addOption("Auto Routine Time", new AutonomousTime(m_drivetrain, m_arm));
+    SmartDashboard.putData(m_chooser);
   }
 
   /**
