@@ -83,14 +83,17 @@ public class RobotContainer {
     //     .onFalse(new PrintCommand("USER Button Released"));
 
     JoystickButton joystickAButton = new JoystickButton(m_controller, 1);
-      joystickAButton
-        .onTrue(new InstantCommand(() -> m_arm.setAngle(ArmConstants.ArmHi), m_arm))
+    joystickAButton
+        .onTrue(new InstantCommand(() -> m_arm.setAngle(ArmConstants.ArmActive), m_arm))
     .onFalse(new InstantCommand(() -> m_arm.setAngle(ArmConstants.ArmResting), m_arm));
-
-    JoystickButton joystickBButton = new JoystickButton(m_controller, 2);
-     joystickBButton
-        .onTrue(new InstantCommand(() -> m_arm.setAngle(60.0), m_arm))
-        .onFalse(new InstantCommand(() -> m_arm.setAngle(ArmConstants.ArmResting), m_arm));
+ JoystickButton joystickYButton = new JoystickButton(m_controller, 3);
+    joystickYButton
+        .onTrue(new InstantCommand(() -> m_arm.setAngle(ArmConstants.ArmNegative), m_arm))
+    .onFalse(new InstantCommand(() -> m_arm.setAngle(ArmConstants.ArmResting), m_arm));
+    // JoystickButton joystickBButton = new JoystickButton(m_controller, 2);
+    // joystickBButton
+    //     .onTrue(new InstantCommand(() -> m_arm.setAngle(90.0), m_arm))
+    //     .onFalse(new InstantCommand(() -> m_arm.setAngle(0.0), m_arm));
 
     JoystickButton joystickYButton = new JoystickButton(m_controller, 3);
       joystickYButton
