@@ -12,6 +12,7 @@ import frc.robot.commands.ArcadeDrive;
 import frc.robot.commands.AutonomousDistance;
 import frc.robot.commands.AutonomousTime;
 import frc.robot.commands.SiriDisplayExample;
+import frc.robot.commands.LineSensorReadout;
 //import frc.robot.commands.SensorReadout;
 import frc.robot.subsystems.Arm;
 import frc.robot.subsystems.DistanceSensor;
@@ -89,19 +90,20 @@ public class RobotContainer {
     JoystickButton joystickAButton = new JoystickButton(m_controller, 1);
     joystickAButton
         .onTrue(new InstantCommand(() -> m_arm.setAngle(ArmConstants.ArmActive), m_arm))
-        .onFalse(new InstantCommand(() -> m_arm.setAngle(ArmConstants.ArmResting), m_arm));
-    JoystickButton joystickYButton = new JoystickButton(m_controller, 3);
+    .onFalse(new InstantCommand(() -> m_arm.setAngle(ArmConstants.ArmResting), m_arm));
+ JoystickButton joystickYButton = new JoystickButton(m_controller, 3);
     joystickYButton
         .onTrue(new InstantCommand(() -> m_arm.setAngle(ArmConstants.ArmNegative), m_arm))
-        .onFalse(new InstantCommand(() -> m_arm.setAngle(ArmConstants.ArmResting), m_arm));
+    .onFalse(new InstantCommand(() -> m_arm.setAngle(ArmConstants.ArmResting), m_arm));
     // JoystickButton joystickBButton = new JoystickButton(m_controller, 2);
     // joystickBButton
-    // .onTrue(new InstantCommand(() -> m_arm.setAngle(90.0), m_arm))
-    // .onFalse(new InstantCommand(() -> m_arm.setAngle(0.0), m_arm));
+    //     .onTrue(new InstantCommand(() -> m_arm.setAngle(90.0), m_arm))
+    //     .onFalse(new InstantCommand(() -> m_arm.setAngle(0.0), m_arm));
 
-    // Joystick button X to run SiriDisplayExample command
-    JoystickButton joystickXButton = new JoystickButton(m_controller, 3);
-    joystickXButton.onTrue(new SiriDisplayExample());
+    JoystickButton joystickYButton = new JoystickButton(m_controller, 3);
+      joystickYButton
+         .onTrue(new InstantCommand(() -> m_LineSensor.printValues(), m_LineSensor));
+
 
     // Setup SmartDashboard options
     m_chooser.setDefaultOption("Auto Routine Distance", new AutonomousDistance(m_drivetrain));
