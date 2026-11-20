@@ -4,12 +4,14 @@
 
 package frc.robot;
 
+import edu.wpi.first.wpilibj.DriverStation;
 import edu.wpi.first.wpilibj.GenericHID;
 import edu.wpi.first.wpilibj.Joystick;
 import edu.wpi.first.wpilibj.XboxController;
 import frc.robot.commands.ArcadeDrive;
 import frc.robot.commands.AutonomousDistance;
 import frc.robot.commands.AutonomousTime;
+import frc.robot.commands.SiriDisplayExample;
 import frc.robot.commands.LineSensorReadout;
 //import frc.robot.commands.SensorReadout;
 import frc.robot.subsystems.Arm;
@@ -31,7 +33,7 @@ import edu.wpi.first.wpilibj2.command.button.Trigger;
 /**
  * This class is where the bulk of the robot should be declared. Since Command-based is a
  * "declarative" paradigm, very little robot logic should actually be handled in the {@link Robot}
- * periodic methods (other than the scheduler calls). Instead, the structure of the robot (including
+ * periodic methods (other than the scheduler calls). Instead, the structure of the robot (including 
  * subsystems, commands, and button mappings) should be declared here.
  */
 public class RobotContainer {
@@ -41,8 +43,8 @@ public class RobotContainer {
   private final Arm m_arm = new Arm();
   private final LineSensor m_LineSensor = new LineSensor();
   private final DistanceSensor m_DistanceSensor = new DistanceSensor();
-  
-  
+
+
   // CODE ADDED - SHOW KYLE
   //private final DistanceSensor distanceSensor = new DistanceSensor();
   // private final SensorReadout sensorReadout = new SensorReadout();
@@ -58,7 +60,10 @@ public class RobotContainer {
     // Configure the button bindings
     configureButtonBindings();
 
-    // CODE ADDED and does NOT work - SHOW KYLE 
+    // suppress driverstation warnings for joystick not being connected
+    DriverStation.silenceJoystickConnectionWarning(true);
+
+    // CODE ADDED and does NOT work - SHOW KYLE
     // Schedule the SensorReadout command to run repeatedly
     //CommandScheduler.getInstance().schedule(sensorReadout);
     m_DistanceSensor.printValues();
