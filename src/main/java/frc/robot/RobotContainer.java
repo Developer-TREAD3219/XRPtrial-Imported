@@ -10,6 +10,7 @@ import edu.wpi.first.wpilibj.XboxController;
 import frc.robot.commands.ArcadeDrive;
 import frc.robot.commands.AutonomousDistance;
 import frc.robot.commands.AutonomousTime;
+import frc.robot.commands.LineSensorReadout;
 //import frc.robot.commands.SensorReadout;
 import frc.robot.subsystems.Arm;
 import frc.robot.subsystems.DistanceSensor;
@@ -40,7 +41,7 @@ public class RobotContainer {
   private final Arm m_arm = new Arm();
   private final LineSensor m_LineSensor = new LineSensor();
   private final DistanceSensor m_DistanceSensor = new DistanceSensor();
-
+  
   
   // CODE ADDED - SHOW KYLE
   //private final DistanceSensor distanceSensor = new DistanceSensor();
@@ -82,7 +83,7 @@ public class RobotContainer {
     //     .onFalse(new PrintCommand("USER Button Released"));
 
     JoystickButton joystickAButton = new JoystickButton(m_controller, 1);
-    joystickAButton
+      joystickAButton
         .onTrue(new InstantCommand(() -> m_arm.setAngle(ArmConstants.ArmHi), m_arm))
     .onFalse(new InstantCommand(() -> m_arm.setAngle(ArmConstants.ArmResting), m_arm));
 
@@ -90,6 +91,11 @@ public class RobotContainer {
      joystickBButton
         .onTrue(new InstantCommand(() -> m_arm.setAngle(60.0), m_arm))
         .onFalse(new InstantCommand(() -> m_arm.setAngle(ArmConstants.ArmResting), m_arm));
+
+    JoystickButton joystickYButton = new JoystickButton(m_controller, 3);
+      joystickYButton
+         .onTrue(new InstantCommand(() -> m_LineSensor.printValues(), m_LineSensor));
+
 
     // Setup SmartDashboard options
     m_chooser.setDefaultOption("Auto Routine Distance", new AutonomousDistance(m_drivetrain));

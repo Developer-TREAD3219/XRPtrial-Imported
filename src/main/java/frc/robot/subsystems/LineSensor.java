@@ -1,6 +1,6 @@
 package frc.robot.subsystems;
 
-import javax.lang.model.util.ElementScanner14;
+//import javax.lang.model.util.ElementScanner14;
 
 import edu.wpi.first.wpilibj.AnalogInput;
 import edu.wpi.first.wpilibj2.command.SubsystemBase;
@@ -44,9 +44,8 @@ public boolean isOnLine() {
 public void printValues() {
     updateValues(); // Ensure values are updated before printing
     
-    //System.out.println("leftLineSensorValue = " + leftLineSensorint);
-    //System.out.println("leftLineSensorValue = " + leftLineSensorVoltage);
-    //System.out.println("rightLineSensorValue = " + rightLineSensorValue);
+   // System.out.println("leftLineSensorValue = " + leftLineSensorVoltage);
+    //System.out.println("rightLineSensorValue = " + rightLineSensorVoltage);
 }
 
     public void periodic (){
