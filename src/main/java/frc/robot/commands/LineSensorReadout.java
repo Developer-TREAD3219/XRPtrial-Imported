@@ -5,6 +5,11 @@ import frc.robot.subsystems.LineSensor;
 public class LineSensorReadout extends Command {
     LineSensor lineSensor = new LineSensor();
 
+    public LineSensorReadout() {
+        // Use addRequirements() here to declare subsystem dependencies.
+        addRequirements(lineSensor);
+    }
+
     // Called when the command is initially scheduled.
     @Override
     public void initialize() {}
@@ -13,7 +18,7 @@ public class LineSensorReadout extends Command {
     @Override
     public void execute() {
         // Create an instance of DistanceSensor
-        LineSensor lineSensor = new LineSensor();
+      //  LineSensor lineSensor = new LineSensor();
 
         // Call the printValues method
         lineSensor.printValues(); 
